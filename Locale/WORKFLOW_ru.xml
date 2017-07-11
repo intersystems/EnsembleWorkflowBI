@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MsgFile Language="ru">
+   <MsgDomain Domain="WORKFLOW">
+      <Message Id="19424289">Имя пользователя</Message>
+      <Message Id="41399927">Поиск</Message>
+      <Message Id="79524168">Листинг</Message>
+      <Message Id="1466347806">Время выполнения</Message>
+      <Message Id="2091671594">Статус</Message>
+      <Message Id="2520307216">Выполнено?</Message>
+      <Message Id="2750809178">WORKFLOW</Message>
+      <Message Id="4149945684">Роль</Message>
+   </MsgDomain>
+</MsgFile>

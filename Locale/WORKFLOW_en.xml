@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MsgFile Language="en">
+   <MsgDomain Domain="WORKFLOW">
+      <Message Id="19424289">Username</Message>
+      <Message Id="41399927">%Search</Message>
+      <Message Id="79524168">Listing</Message>
+      <Message Id="1466347806">CompletionTime</Message>
+      <Message Id="2091671594">Status</Message>
+      <Message Id="2520307216">IsComplete</Message>
+      <Message Id="2750809178">WORKFLOW</Message>
+      <Message Id="4149945684">Role</Message>
+   </MsgDomain>
+</MsgFile>
