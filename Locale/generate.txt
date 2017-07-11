@@ -1,8 +1,0 @@
-kill ^CacheMsg("WORKFLOW") 
-zw ^CacheMsg("WORKFLOW")
-set $mvv(58)="en"
-set dir = "C:\temp\EnsembleWorkflowBI\Locale"
-do $system.OBJ.Compile("Workflow.Cube")
-do ##class(%MessageDictionary).ExportDomainList(dir _ "WORKFLOW_en.xml","WORKFLOW", "en")
-do ##class(%MessageDictionary).ExportDomainList(dir _ "WORKFLOW_ru.xml","WORKFLOW", "ru")
-do ##class(%MessageDictionary).ImportDir(dir)
