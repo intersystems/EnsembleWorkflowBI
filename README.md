@@ -1,5 +1,5 @@
 # EnsembleWorkflowBI
-DeepSee Cube and sample dashboards for Ensemble Workflow.
+DeepSee Cube and sample dashboards for Ensemble Workflow. Tested on 2015.1 and later.
 
 ## Installation
 
