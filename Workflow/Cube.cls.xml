@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Export generator="Cache" version="25" zv="Cache for Windows (x86-64) 2016.1 (Build 656U)" ts="2017-07-11 23:09:49">
+<Export generator="Cache" version="25" zv="Cache for UNIX (SUSE Linux Enterprise Server for x86-64) 2015.1 (Build 425U)" ts="2017-07-12 15:09:21">
 <Class name="Workflow.Cube">
 <Description>
 </Description>
+<IncludeCode>EnsUtil</IncludeCode>
 <Super>%DeepSee.CubeDefinition</Super>
-<TimeChanged>64475,83172.300557</TimeChanged>
+<TimeChanged>64476,54416.604835</TimeChanged>
 <TimeCreated>64470,54949.471637</TimeCreated>
 <DependsOn>EnsLib.Workflow.TaskResponse</DependsOn>
 
@@ -13,35 +14,59 @@
 Cube definition from Architect.</Description>
 <XMLNamespace>http://www.intersystems.com/deepsee</XMLNamespace>
 <Data><![CDATA[
-<cube xmlns="http://www.intersystems.com/deepsee" name="WORKFLOW" displayName="WORKFLOW" disabled="false" abstract="false" sourceClass="EnsLib.Workflow.TaskResponse" countMeasureName="%COUNT" bucketSize="8" bitmapChunkInMemory="false" precompute="0" disableListingGroups="false">
-  <dimension name="Role" displayName="Role" disabled="false" hasAll="false" allCaption="All %RoleName" allDisplayName="%RoleName" type="data" calendar="gregorian" iKnowType="entity" hidden="false" showHierarchies="default">
-    <hierarchy name="H1" disabled="false" hidden="false">
-      <level name="Role" displayName="Role" disabled="false" sourceProperty="%RoleName" list="false" useDisplayValue="true" useAsFilter="true" hidden="false">
+<cube xmlns="http://www.intersystems.com/deepsee" name="WORKFLOW" displayName="WORKFLOW" disabled="false" abstract="false" sourceClass="EnsLib.Workflow.TaskResponse" countMeasureName="%COUNT" bucketSize="8" bitmapChunkInMemory="false" precompute="0">
+  <dimension name="Role" displayName="Role" disabled="false" hasAll="false" allCaption="All %RoleName" allDisplayName="%RoleName" type="data" iKnowType="entity" hidden="false" showHierarchies="default">
+    <hierarchy name="H1" disabled="false">
+      <level sourceProperty="%RoleName" name="Role" displayName="Role" disabled="false" list="false" useDisplayValue="true" useAsFilter="true">
       </level>
     </hierarchy>
   </dimension>
-  <dimension name="Username" displayName="Username" disabled="false" hasAll="false" allCaption="All %UserName" allDisplayName="%UserName" type="data" calendar="gregorian" iKnowType="entity" hidden="false" showHierarchies="default">
-    <hierarchy name="H1" disabled="false" hidden="false">
-      <level name="Username" displayName="Username" disabled="false" sourceProperty="%TaskStatus.AssignedTo" list="false" useDisplayValue="true" useAsFilter="true" hidden="false">
+  <dimension name="Username" displayName="Username" disabled="false" hasAll="false" allCaption="All %UserName" allDisplayName="%UserName" type="data" iKnowType="entity" hidden="false" showHierarchies="default">
+    <hierarchy name="H1" disabled="false">
+      <level sourceProperty="%TaskStatus.AssignedTo" name="Username" displayName="Username" disabled="false" list="false" useDisplayValue="true" useAsFilter="true">
       </level>
     </hierarchy>
   </dimension>
-  <dimension name="Status" displayName="Status" disabled="false" hasAll="false" allCaption="All %Status" allDisplayName="%Status" type="data" calendar="gregorian" iKnowType="entity" hidden="false" showHierarchies="default">
-    <hierarchy name="H1" disabled="false" hidden="false">
-      <level name="Status" displayName="Status" disabled="false" sourceProperty="%Status" list="false" useDisplayValue="true" useAsFilter="true" hidden="false">
+  <dimension name="Status" displayName="Status" disabled="false" hasAll="false" allCaption="All %Status" allDisplayName="%Status" type="data" iKnowType="entity" hidden="false" showHierarchies="default">
+    <hierarchy name="H1" disabled="false">
+      <level sourceProperty="%Status" name="Status" displayName="Status" disabled="false" list="false" useDisplayValue="true" useAsFilter="true">
       </level>
     </hierarchy>
   </dimension>
-  <dimension name="IsComplete" displayName="IsComplete" disabled="false" hasAll="false" allCaption="All IsComplete" allDisplayName="IsComplete" type="data" calendar="gregorian" iKnowType="entity" hidden="false" showHierarchies="default">
-    <hierarchy name="H1" disabled="false" hidden="false">
-      <level name="IsComplete" displayName="IsComplete" disabled="false" sourceProperty="%TaskStatus.IsComplete" list="false" useDisplayValue="true" useAsFilter="true" hidden="false">
+  <dimension name="IsComplete" displayName="IsComplete" disabled="false" hasAll="false" allCaption="All IsComplete" allDisplayName="IsComplete" type="data" iKnowType="entity" hidden="false" showHierarchies="default">
+    <hierarchy name="H1" disabled="false">
+      <level sourceProperty="%TaskStatus.IsComplete" name="IsComplete" displayName="IsComplete" disabled="false" list="false" useDisplayValue="true" useAsFilter="true">
       </level>
     </hierarchy>
   </dimension>
-  <measure name="CompletionTime" displayName="CompletionTime" disabled="false" sourceExpression="$System.SQL.DATEDIFF(&quot;minute&quot;,%source.%TaskStatus.TimeCreated,%source.%TaskStatus.TimeCompleted)" aggregate="AVG" type="integer" hidden="false" searchable="false">
-  </measure>
-  <listing name="Listing" displayName="Listing" disabled="false" listingType="table" fieldList="%Subject,%Message,%UserName,%TaskStatus_TimeCreated,%TaskStatus_TimeCompleted,%TaskStatus_IsComplete" sql="SELECT TaskStatus_RoleName As &quot;Role&quot;,  TaskStatus_IsComplete As IsCompleted,  %Status As &quot;Status&quot;,  TaskStatus_Source As BusinessProcess,  TaskStatus_AssignedTo As &quot;User&quot;,  %Subject As &quot;Subject&quot;,  %Message As &quot;Message&quot;,  TaskStatus_TimeCreated As &quot;TimeCreated&quot;,  TaskStatus_TimeCompleted As &quot;TimeCompleted&quot;,  DATEDIFF(&apos;minute&apos;,TaskStatus_TimeCreated,TaskStatus_TimeCompleted) As &quot;CompletionTime&quot; FROM $$$SOURCE  WHERE $$$RESTRICT">
-  </listing>
+  <dimension name="TimeCompleted" displayName="TimeCompleted" disabled="false" hasAll="false" allCaption="All TimeCompleted" allDisplayName="TimeCompleted" sourceProperty="%TaskStatus.TimeCompleted" type="time" iKnowType="entity" hidden="false" showHierarchies="default">
+    <hierarchy name="TimeCompleted" displayName="TimeCompleted" disabled="false">
+      <level name="YearCompleted" displayName="YearCompleted" disabled="false" timeFunction="Year" list="false" useDisplayValue="true" useAsFilter="true">
+      </level>
+      <level name="MonthCompleted" displayName="MonthCompleted" disabled="false" timeFunction="MonthYear" list="false" useDisplayValue="true" useAsFilter="true">
+      </level>
+      <level name="DayCompleted" displayName="DayCompleted" disabled="false" timeFunction="DayMonthYear" list="false" useDisplayValue="true" useAsFilter="true">
+      </level>
+    </hierarchy>
+  </dimension>
+  <dimension name="TimeCreated" displayName="TimeCreated" disabled="false" hasAll="false" allCaption="All TimeCreated" allDisplayName="TimeCreated" sourceProperty="%TaskStatus.TimeCreated" type="time" iKnowType="entity" hidden="false" showHierarchies="default">
+    <hierarchy name="TimeCreated" displayName="TimeCreated" disabled="false">
+      <level name="YearCreated" displayName="YearCreated" disabled="false" timeFunction="Year" list="false" useDisplayValue="true" useAsFilter="true">
+      </level>
+      <level name="MonthCreated" displayName="MonthCreated" disabled="false" timeFunction="MonthYear" list="false" useDisplayValue="true" useAsFilter="true">
+      </level>
+      <level name="DayCreated" displayName="DayCreated" disabled="false" timeFunction="DayMonthYear" list="false" useDisplayValue="true" useAsFilter="true">
+      </level>
+    </hierarchy>
+  </dimension>
+  <dimension name="Priority" displayName="Priority" disabled="false" hasAll="false" allCaption="All %Priority" allDisplayName="%Priority" type="data" iKnowType="entity" hidden="false" showHierarchies="default">
+    <hierarchy name="Priority" displayName="Priority" disabled="false">
+      <level sourceProperty="%Priority" name="Priority" displayName="Priority" disabled="false" list="false" useDisplayValue="true" useAsFilter="true">
+      </level>
+    </hierarchy>
+  </dimension>
+  <measure sourceExpression="$System.SQL.DATEDIFF(&quot;minute&quot;,%source.%TaskStatus.TimeCreated,%source.%TaskStatus.TimeCompleted)" name="CompletionTime" displayName="CompletionTime" disabled="false" aggregate="AVG" type="integer" hidden="false" searchable="false"></measure>
+  <listing name="Listing" displayName="Listing" disabled="false" listingType="table" fieldList="%Subject,%Message,%UserName,%TaskStatus_TimeCreated,%TaskStatus_TimeCompleted,%TaskStatus_IsComplete" sql="SELECT TaskStatus_RoleName As &quot;Role&quot;,  TaskStatus_IsComplete As IsCompleted,  %Status As &quot;Status&quot;,  TaskStatus_Source As BusinessProcess,  TaskStatus_AssignedTo As &quot;User&quot;,  %Subject As &quot;Subject&quot;,  %Message As &quot;Message&quot;,  TaskStatus_TimeCreated As &quot;TimeCreated&quot;,  TaskStatus_TimeCompleted As &quot;TimeCompleted&quot;,  DATEDIFF(&apos;minute&apos;,TaskStatus_TimeCreated,TaskStatus_TimeCompleted) As &quot;CompletionTime&quot; FROM $$$SOURCE  WHERE $$$RESTRICT"></listing>
 </cube>
 ]]></Data>
 </XData>
