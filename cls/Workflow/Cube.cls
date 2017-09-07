@@ -1,19 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Export generator="Cache" version="25" zv="Cache for UNIX (SUSE Linux Enterprise Server for x86-64) 2015.1 (Build 425U)" ts="2017-07-12 15:09:21">
-<Class name="Workflow.Cube">
-<Description>
-</Description>
-<IncludeCode>EnsUtil</IncludeCode>
-<Super>%DeepSee.CubeDefinition</Super>
-<TimeChanged>64476,54416.604835</TimeChanged>
-<TimeCreated>64470,54949.471637</TimeCreated>
-<DependsOn>EnsLib.Workflow.TaskResponse</DependsOn>
+Include EnsUtil
 
-<XData name="Cube">
-<Description>
-Cube definition from Architect.</Description>
-<XMLNamespace>http://www.intersystems.com/deepsee</XMLNamespace>
-<Data><![CDATA[
+/// 
+Class Workflow.Cube Extends %DeepSee.CubeDefinition [ DependsOn = EnsLib.Workflow.TaskResponse ]
+{
+
+/// Cube definition from Architect.
+XData Cube [ XMLNamespace = "http://www.intersystems.com/deepsee" ]
+{
 <cube xmlns="http://www.intersystems.com/deepsee" name="WORKFLOW" displayName="WORKFLOW" disabled="false" abstract="false" sourceClass="EnsLib.Workflow.TaskResponse" countMeasureName="%COUNT" bucketSize="8" bitmapChunkInMemory="false" precompute="0">
   <dimension name="Role" displayName="Role" disabled="false" hasAll="false" allCaption="All %RoleName" allDisplayName="%RoleName" type="data" iKnowType="entity" hidden="false" showHierarchies="default">
     <hierarchy name="H1" disabled="false">
@@ -68,11 +61,9 @@ Cube definition from Architect.</Description>
   <measure sourceExpression="$System.SQL.DATEDIFF(&quot;minute&quot;,%source.%TaskStatus.TimeCreated,%source.%TaskStatus.TimeCompleted)" name="CompletionTime" displayName="CompletionTime" disabled="false" aggregate="AVG" type="integer" hidden="false" searchable="false"></measure>
   <listing name="Listing" displayName="Listing" disabled="false" listingType="table" fieldList="%Subject,%Message,%UserName,%TaskStatus_TimeCreated,%TaskStatus_TimeCompleted,%TaskStatus_IsComplete" sql="SELECT TaskStatus_RoleName As &quot;Role&quot;,  TaskStatus_IsComplete As IsCompleted,  %Status As &quot;Status&quot;,  TaskStatus_Source As BusinessProcess,  TaskStatus_AssignedTo As &quot;User&quot;,  %Subject As &quot;Subject&quot;,  %Message As &quot;Message&quot;,  TaskStatus_TimeCreated As &quot;TimeCreated&quot;,  TaskStatus_TimeCompleted As &quot;TimeCompleted&quot;,  DATEDIFF(&apos;minute&apos;,TaskStatus_TimeCreated,TaskStatus_TimeCompleted) As &quot;CompletionTime&quot; FROM $$$SOURCE  WHERE $$$RESTRICT"></listing>
 </cube>
-]]></Data>
-</XData>
+}
 
-<Parameter name="DOMAIN">
-<Default>WORKFLOW</Default>
-</Parameter>
-</Class>
-</Export>
+Parameter DOMAIN = "WORKFLOW";
+
+}
+

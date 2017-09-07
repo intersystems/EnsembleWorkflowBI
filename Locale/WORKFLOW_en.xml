@@ -4,9 +4,18 @@
       <Message Id="19424289">Username</Message>
       <Message Id="41399927">%Search</Message>
       <Message Id="79524168">Listing</Message>
+      <Message Id="209499709">YearCompleted</Message>
+      <Message Id="440127273">YearCreated</Message>
+      <Message Id="500425094">MonthCompleted</Message>
       <Message Id="1466347806">CompletionTime</Message>
+      <Message Id="1540991366">TimeCreated</Message>
+      <Message Id="1815118250">DayCreated</Message>
       <Message Id="2091671594">Status</Message>
+      <Message Id="2167575444">TimeCompleted</Message>
+      <Message Id="2377541417">DayCompleted</Message>
       <Message Id="2520307216">IsComplete</Message>
+      <Message Id="2545311425">MonthCreated</Message>
+      <Message Id="2614148721">Priority</Message>
       <Message Id="2750809178">WORKFLOW</Message>
       <Message Id="4149945684">Role</Message>
    </MsgDomain>
