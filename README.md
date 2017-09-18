@@ -3,7 +3,7 @@ DeepSee Cube and sample dashboards for Ensemble Workflow. Tested on 2015.1 and l
 
 ## Installation
 
-1. Import latest release or all XMLs (except from `Locale` folder) into any Ensemble enabled namespace.
+1. Import the latest [release](https://github.com/intersystems-ru/EnsembleWorkflowBI/releases) into any Ensemble enabled namespace.
 2. Compile: `Do $system.OBJ.Compile("Workflow.Cube")`
 3. Build cube: `Do ##class(%DeepSee.Utils).%BuildCube("WORKFLOW")`
 4. (Optional) For localization call: `Do ##class(%MessageDictionary).ImportDir(dir)` where dir is a path to `Locale` folder.
