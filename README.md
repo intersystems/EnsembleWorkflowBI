@@ -26,3 +26,6 @@ Do ##class(%MessageDictionary).ExportDomainList(dir _ "WORKFLOW_en.xml","WORKFLO
 Do ##class(%MessageDictionary).ExportDomainList(dir _ "WORKFLOW_ru.xml","WORKFLOW", "ru")
 Do ##class(%MessageDictionary).ImportDir(dir)
 ```
+## Discussion
+For more information on the app and further discussion please check the article [Visualizing Ensemble Workflow task execution
+](https://community.intersystems.com/post/visualizing-ensemble-workflow-task-execution)
